@@ -4,7 +4,7 @@ import java.awt.event.*;
 
 // original submission by Rukhsana
 
-public class Cube3DViewer extends JPanel implements MouseListener, MouseMotionListener {
+public class Cube3DViewer extends JPanel implements MouseListener, MouseMotionListener, GraphicsProgram {
     private static final int SIZE = 100;
     private static final int HALF_SIZE = SIZE / 2;
     private static final int CUBE_CENTER_X = 150;
@@ -143,5 +143,10 @@ public class Cube3DViewer extends JPanel implements MouseListener, MouseMotionLi
             frame.setLocationRelativeTo(null);
             frame.setVisible(true);
         });
+    }
+
+    @Override
+    public JPanel getProgramPanel() {
+        return new Cube3DViewer();
     }
 }
