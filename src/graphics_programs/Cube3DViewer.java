@@ -1,3 +1,5 @@
+package graphics_programs;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -5,6 +7,9 @@ import java.awt.event.*;
 // original submission by Rukhsana
 
 public class Cube3DViewer extends JPanel implements MouseListener, MouseMotionListener, GraphicsProgram {
+
+    private JPanel panel;
+
     private static final int SIZE = 100;
     private static final int HALF_SIZE = SIZE / 2;
     private static final int CUBE_CENTER_X = 150;
@@ -17,6 +22,7 @@ public class Cube3DViewer extends JPanel implements MouseListener, MouseMotionLi
     private double rotationY = 0;
 
     public Cube3DViewer() {
+        this.panel = this;
         setPreferredSize(new Dimension(300, 300));
         setBackground(Color.WHITE);
         addMouseListener(this);
@@ -134,19 +140,18 @@ public class Cube3DViewer extends JPanel implements MouseListener, MouseMotionLi
     @Override
     public void mouseMoved(MouseEvent e) {}
 
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> {
-            JFrame frame = new JFrame("3D Cube Viewer");
-            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            frame.getContentPane().add(new Cube3DViewer());
-            frame.pack();
-            frame.setLocationRelativeTo(null);
-            frame.setVisible(true);
-        });
+    @Override
+    public JPanel getProgramPanel() {
+        return panel;
     }
 
     @Override
-    public JPanel getProgramPanel() {
-        return new Cube3DViewer();
+    public String getProgramName() {
+        return "Cube viewer";
+    }
+
+    @Override
+    public Boolean getCompletedStatus() {
+        return null;
     }
 }

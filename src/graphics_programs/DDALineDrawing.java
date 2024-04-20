@@ -1,11 +1,17 @@
+package graphics_programs;
+
 import java.awt.Graphics;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class DDALineDrawing extends JPanel {
+public class DDALineDrawing extends JPanel implements GraphicsProgram {
     private int startX, startY, endX, endY;
+    private JPanel panel;
+
 
     public DDALineDrawing(int startX, int startY, int endX, int endY) {
+        this.panel = this;
+
         this.startX = startX;
         this.startY = startY;
         this.endX = endX;
@@ -52,5 +58,20 @@ public class DDALineDrawing extends JPanel {
         frame.setSize(400, 400);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
+    }
+
+    @Override
+    public JPanel getProgramPanel() {
+        return panel;
+    }
+
+    @Override
+    public String getProgramName() {
+        return "dda line drawing";
+    }
+
+    @Override
+    public Boolean getCompletedStatus() {
+        return null;
     }
 }

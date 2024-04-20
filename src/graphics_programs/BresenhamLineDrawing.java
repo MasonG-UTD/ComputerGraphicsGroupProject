@@ -1,11 +1,17 @@
+package graphics_programs;
+
 import java.awt.Graphics;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class BresenhamLineDrawing extends JPanel {
+public class BresenhamLineDrawing extends JPanel implements GraphicsProgram {
+
+    private JPanel panel;
+
     private int startX, startY, endX, endY;
 
     public BresenhamLineDrawing(int startX, int startY, int endX, int endY) {
+        this.panel = this;
         this.startX = startX;
         this.startY = startY;
         this.endX = endX;
@@ -60,5 +66,20 @@ public class BresenhamLineDrawing extends JPanel {
         frame.setSize(400, 400);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
+    }
+
+    @Override
+    public JPanel getProgramPanel() {
+        return panel;
+    }
+
+    @Override
+    public String getProgramName() {
+        return "Bresenham line drawing";
+    }
+
+    @Override
+    public Boolean getCompletedStatus() {
+        return null;
     }
 }

@@ -1,3 +1,5 @@
+import graphics_programs.GraphicsProgram;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -14,7 +16,7 @@ public class GraphicsProgramListElement extends DefaultListCellRenderer implemen
             boolean cellHasFocus) {
 
         GraphicsProgram program = (GraphicsProgram) value;
-        setText("name");
+        setText(program.getProgramName());
         setIconTextGap(ICON_TEXT_GAP);
 
         setEnabled(true);

@@ -1,3 +1,5 @@
+package graphics_programs;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
@@ -5,15 +7,15 @@ import java.awt.event.MouseEvent;
 
 // original submission by Ananya
 
-public class ClipLine extends JFrame {
+public class ClipLine extends JPanel implements GraphicsProgram {
    private int x1, y1, x2, y2;
    private Rectangle clippingWindow;
+   private JPanel panel;
+
 
    public ClipLine() {
-      setTitle("Line Clipping");
+      this.panel = this;
       setSize(400, 400);
-      setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-      setLocationRelativeTo(null);
 
       clippingWindow = new Rectangle(100, 100, 200, 200); // Define clipping window rectangle
 
@@ -121,10 +123,18 @@ public class ClipLine extends JFrame {
       g.drawRect(clippingWindow.x, clippingWindow.y, clippingWindow.width, clippingWindow.height);
    }
 
-   public static void main(String[] args) {
-      SwingUtilities.invokeLater(() -> {
-         ClipLine app = new ClipLine();
-         app.setVisible(true);
-      });
+   @Override
+   public JPanel getProgramPanel() {
+      return null;
+   }
+
+   @Override
+   public String getProgramName() {
+      return "clip line";
+   }
+
+   @Override
+   public Boolean getCompletedStatus() {
+      return null;
    }
 }

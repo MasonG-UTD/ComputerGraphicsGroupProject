@@ -1,5 +1,5 @@
-// Polygon.java: Clipping a polygon.
-// Uses: Point2D (Section 1.4).
+package graphics_programs;// graphics_programs.Polygon.java: Clipping a polygon.
+// Uses: graphics_programs.Point2D (Section 1.4).
 import java.awt.*;
 import java.awt.event.*;
 import java.util.*;
@@ -10,6 +10,7 @@ public class Polygon extends Frame {
     public static void main(String[] args) {new Polygon();   }
 
     Polygon() {
+
         super("Define polygon vertices by clicking");
         addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent e) {System.exit(0);}

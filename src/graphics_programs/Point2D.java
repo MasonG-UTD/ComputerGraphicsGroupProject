@@ -1,4 +1,4 @@
-// Point2D.java: Class for points in logical coordinates.
+package graphics_programs;// graphics_programs.Point2D.java: Class for points in logical coordinates.
 
 // Copied from Section 1.5 of
 //    Ammeraal, L. and K. Zhang (2007). Computer Graphics for Java Programmers, 2nd Edition,
