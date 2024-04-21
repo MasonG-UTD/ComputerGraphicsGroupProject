@@ -23,7 +23,6 @@ public class GraphicsMenu extends JFrame {
         dda = new DDALineDrawing(0,0,200,200);
         clipLine = new ClipLine();
         //polygon = new  graphics_programs.Polygon();
-        cubeViewer = new Cube3DViewer();
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 450, 300);
@@ -33,7 +32,7 @@ public class GraphicsMenu extends JFrame {
         contentPane.setLayout(new BorderLayout(0, 0));
         setContentPane(contentPane);
 
-        GraphicsProgram[] elements = {bresenham, dda, clipLine, cubeViewer};
+        GraphicsProgram[] elements = {bresenham, dda, clipLine};
         programList = new JList(elements);
         programList.setCellRenderer(new GraphicsProgramListElement());
 
