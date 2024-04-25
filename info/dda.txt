@@ -1,0 +1,14 @@
+The Digital Differential Analyzer (DDA) Algorithm
+The DDA algorithm is used for rasterizing lines in computer graphics. It is a simple and efficient
+method to generate a line between two points in a coordinate system. The algorithm works by
+calculating intermediate values between endpoints and using these values to plot the line's pixels.
+Key Characteristics of the DDA Algorithm:
+• It increments one coordinate at a time based on the slope of the line.
+• The line's slope determines whether the x-coordinate or the y-coordinate is incremented
+by exactly one unit (either pixel-by-pixel along the x-axis or y-axis).
+• The other coordinate is incremented by the value of the slope.
+• The algorithm uses floating point or integer arithmetic to calculate pixel positions.
+The Implementation
+This implementation creates a simple window where a line is drawn using the DDA algorithm
+from a starting point (10, 10) to an ending point (100, 100). The method drawLine handles the
+DDA algorithm's computation and rendering of the line pixel by pixel.

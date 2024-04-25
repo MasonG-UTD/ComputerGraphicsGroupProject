@@ -15,6 +15,8 @@ public class ClipLine extends JPanel implements GraphicsProgram {
    private static final int PANEL_WIDTH = 400;
    private static final int PANEL_HEIGHT = 400;
 
+   private boolean completed = false;
+
    public ClipLine() {
       this.panel = this;
       setSize(PANEL_WIDTH, PANEL_HEIGHT);
@@ -147,11 +149,11 @@ public class ClipLine extends JPanel implements GraphicsProgram {
 
    @Override
    public Boolean getCompletedStatus() {
-      return null;
+      return completed;
    }
 
    @Override
-   public JPanel getInfoPanel() {
-      return null;
+   public String getInfoFileName() {
+      return "info/clip.txt";
    }
 }

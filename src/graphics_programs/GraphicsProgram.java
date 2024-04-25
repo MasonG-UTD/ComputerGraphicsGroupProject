@@ -15,7 +15,6 @@ public interface GraphicsProgram {
 
     public Boolean getCompletedStatus();
 
-    public JPanel getInfoPanel();
-
+    public String getInfoFileName();
 
 }

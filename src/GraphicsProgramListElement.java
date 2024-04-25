@@ -17,29 +17,33 @@ public class GraphicsProgramListElement extends DefaultListCellRenderer implemen
 
         GraphicsProgram program = (GraphicsProgram) value;
         setText(program.getProgramName());
+        setSize(800,300);
+        if(program.getCompletedStatus()) {
+            setIcon(program.getIcon());
+        } else {
+            setIcon(new IncompleteIcon());
+        }
         setIconTextGap(ICON_TEXT_GAP);
-        setIcon(program.getIcon());
 
         setEnabled(true);
-
         return this;
     }
 
-
 }
 
-class FolderIcon implements Icon {
-    public int getIconHeight() {
-        return 8;
+class IncompleteIcon implements Icon {
+
+    @Override
+    public void paintIcon(Component c, Graphics g, int x, int y) {
     }
 
+    @Override
     public int getIconWidth() {
-        return 16;
+        return 0;
     }
 
-    public void paintIcon( Component c, Graphics g, int x, int y ) {
-        g.setColor( Color.yellow.darker() );
-        g.fillRoundRect( x + 3, y - 2, 8,  8, 2, 2 );
-        g.fillRect     ( x + 1, y,     16, 10 );
+    @Override
+    public int getIconHeight() {
+        return 0;
     }
 }

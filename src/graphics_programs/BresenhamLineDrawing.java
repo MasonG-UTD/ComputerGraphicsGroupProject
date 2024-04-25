@@ -12,6 +12,9 @@ public class BresenhamLineDrawing extends JPanel implements GraphicsProgram {
 
     private int startX, startY, endX, endY;
 
+    private boolean completed = false;
+
+
     public BresenhamLineDrawing(int startX, int startY, int endX, int endY) {
         this.panel = this;
         setSize(PANEL_WIDTH, PANEL_HEIGHT);
@@ -54,6 +57,7 @@ public class BresenhamLineDrawing extends JPanel implements GraphicsProgram {
                 y += sy;
             }
         }
+        completed = true;
     }
 
     @Override
@@ -61,15 +65,6 @@ public class BresenhamLineDrawing extends JPanel implements GraphicsProgram {
         super.paintComponent(g);
         drawLine(g);
     }
-
-//    public static void main(String[] args) {
-//        JFrame frame = new JFrame("Bresenham Line Drawing Algorithm");
-//        BresenhamLineDrawing lineDrawer = new BresenhamLineDrawing(10, 10, 100, 100);
-//        frame.setContentPane(lineDrawer);
-//        frame.setSize(400, 400);
-//        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        frame.setVisible(true);
-//    }
 
     @Override
     public JPanel getProgramPanel() {
@@ -94,11 +89,11 @@ public class BresenhamLineDrawing extends JPanel implements GraphicsProgram {
 
     @Override
     public Boolean getCompletedStatus() {
-        return null;
+        return completed;
     }
 
     @Override
-    public JPanel getInfoPanel() {
-        return null;
+    public String getInfoFileName() {
+        return "info/bres.txt";
     }
 }

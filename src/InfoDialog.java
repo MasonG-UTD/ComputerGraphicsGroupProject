@@ -1,15 +1,38 @@
+import graphics_programs.GraphicsProgram;
+
 import javax.swing.*;
 import java.awt.event.*;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 
-public class testDialog extends JDialog {
+public class InfoDialog extends JDialog {
     private JPanel contentPane;
     private JButton buttonOK;
     private JButton buttonCancel;
+    private JTextPane textPane1;
 
-    public testDialog() {
+    public InfoDialog(GraphicsProgram program) {
+        System.out.println("info");
         setContentPane(contentPane);
+        this.setSize(program.getDimension());
         setModal(true);
         getRootPane().setDefaultButton(buttonOK);
+
+        FileReader reader = null;
+        try {
+            reader = new FileReader(program.getInfoFileName());
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        BufferedReader bufferedReader = new BufferedReader(reader);
+        try {
+            textPane1.read(bufferedReader, null);
+            bufferedReader.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
         buttonOK.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -22,6 +45,7 @@ public class testDialog extends JDialog {
                 onCancel();
             }
         });
+
 
         // call onCancel() when cross is clicked
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
@@ -49,10 +73,4 @@ public class testDialog extends JDialog {
         dispose();
     }
 
-    public static void main(String[] args) {
-        testDialog dialog = new testDialog();
-        dialog.pack();
-        dialog.setVisible(true);
-        System.exit(0);
-    }
 }

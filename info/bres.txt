@@ -1,0 +1,16 @@
+The Bresenham Line Algorithm
+The Bresenham Line algorithm is an efficient technique used for rasterizing lines in computer
+graphics, particularly advantageous for its use of only integer arithmetic. It is an improvement
+over the DDA algorithm because it eliminates the use of floating-point arithmetic, enhancing
+performance.
+Key Characteristics of the Bresenham Line Algorithm:
+• It determines the closest pixel to the theoretical line to plot on an integer-based grid.
+• The big advantage of this algorithm is that it uses only integer calculations for all
+operations, ensuring high performance.
+• It calculates the error or the difference between the theoretical line and the plotted line,
+adjusting it at each step.
+The Implementation
+This code will open a window where a line is drawn from point (10, 10) to (100, 100) using the
+Bresenham algorithm. The drawLine method computes and draws the line based on integer
+arithmetic, efficiently deciding the next pixel to plot based on the error term adjustments
+throughout the line drawing process.

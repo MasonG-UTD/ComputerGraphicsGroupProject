@@ -11,6 +11,8 @@ public class DDALineDrawing extends JPanel implements GraphicsProgram {
     private int startX, startY, endX, endY;
     private JPanel panel;
 
+    private boolean completed;
+
     public DDALineDrawing(int startX, int startY, int endX, int endY) {
         this.panel = this;
         setSize(PANEL_WIDTH, PANEL_HEIGHT);
@@ -85,11 +87,11 @@ public class DDALineDrawing extends JPanel implements GraphicsProgram {
 
     @Override
     public Boolean getCompletedStatus() {
-        return null;
+        return completed;
     }
 
     @Override
-    public JPanel getInfoPanel() {
-        return null;
+    public String getInfoFileName() {
+        return "info/dda.txt";
     }
 }
