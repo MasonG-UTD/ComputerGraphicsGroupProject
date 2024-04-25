@@ -12,10 +12,12 @@ public class ClipLine extends JPanel implements GraphicsProgram {
    private Rectangle clippingWindow;
    private JPanel panel;
 
+   private static final int PANEL_WIDTH = 400;
+   private static final int PANEL_HEIGHT = 400;
 
    public ClipLine() {
       this.panel = this;
-      setSize(400, 400);
+      setSize(PANEL_WIDTH, PANEL_HEIGHT);
 
       clippingWindow = new Rectangle(100, 100, 200, 200); // Define clipping window rectangle
 
@@ -125,7 +127,7 @@ public class ClipLine extends JPanel implements GraphicsProgram {
 
    @Override
    public JPanel getProgramPanel() {
-      return null;
+      return this.panel;
    }
 
    @Override
@@ -134,7 +136,22 @@ public class ClipLine extends JPanel implements GraphicsProgram {
    }
 
    @Override
+   public ImageIcon getIcon() {
+      return new javax.swing.ImageIcon("candy/images.png");
+   }
+
+   @Override
+   public Dimension getDimension() {
+      return new Dimension(PANEL_WIDTH, PANEL_HEIGHT);
+   }
+
+   @Override
    public Boolean getCompletedStatus() {
+      return null;
+   }
+
+   @Override
+   public JPanel getInfoPanel() {
       return null;
    }
 }

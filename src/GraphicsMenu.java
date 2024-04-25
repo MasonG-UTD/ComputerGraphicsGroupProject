@@ -19,11 +19,7 @@ public class GraphicsMenu extends JFrame {
 
     public GraphicsMenu() {
 
-        bresenham = new BresenhamLineDrawing(0,0,200,200);
-        dda = new DDALineDrawing(0,0,200,200);
-        clipLine = new ClipLine();
-        //polygon = new  graphics_programs.Polygon();
-
+        setName("Graphics Review");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 450, 300);
 
@@ -32,10 +28,15 @@ public class GraphicsMenu extends JFrame {
         contentPane.setLayout(new BorderLayout(0, 0));
         setContentPane(contentPane);
 
-        GraphicsProgram[] elements = {bresenham, dda, clipLine};
-        programList = new JList(elements);
-        programList.setCellRenderer(new GraphicsProgramListElement());
+        dda = new DDALineDrawing(0,0,200,200);
+        bresenham = new BresenhamLineDrawing(0,0,100,100);
+        clipLine = new ClipLine();
 
+        GraphicsProgram[] elements = {dda, bresenham, clipLine};
+        GraphicsProgramListElement listRenderer = new GraphicsProgramListElement();
+        programList = new JList(elements);
+        programList.setCellRenderer(listRenderer);
+        programList.setVisibleRowCount(4);
         programList.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -43,8 +44,9 @@ public class GraphicsMenu extends JFrame {
                 new GraphicsProgramWindow(program);
             }
         });
+        JScrollPane listPane = new JScrollPane(programList);
+        contentPane.add(listPane);
 
-        contentPane.add(programList);
     }
 }
 

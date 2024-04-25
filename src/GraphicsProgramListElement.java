@@ -18,6 +18,7 @@ public class GraphicsProgramListElement extends DefaultListCellRenderer implemen
         GraphicsProgram program = (GraphicsProgram) value;
         setText(program.getProgramName());
         setIconTextGap(ICON_TEXT_GAP);
+        setIcon(program.getIcon());
 
         setEnabled(true);
 
@@ -25,4 +26,20 @@ public class GraphicsProgramListElement extends DefaultListCellRenderer implemen
     }
 
 
+}
+
+class FolderIcon implements Icon {
+    public int getIconHeight() {
+        return 8;
+    }
+
+    public int getIconWidth() {
+        return 16;
+    }
+
+    public void paintIcon( Component c, Graphics g, int x, int y ) {
+        g.setColor( Color.yellow.darker() );
+        g.fillRoundRect( x + 3, y - 2, 8,  8, 2, 2 );
+        g.fillRect     ( x + 1, y,     16, 10 );
+    }
 }

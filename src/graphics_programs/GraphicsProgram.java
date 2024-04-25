@@ -1,6 +1,7 @@
 package graphics_programs;
 
 import javax.swing.*;
+import java.awt.*;
 
 public interface GraphicsProgram {
 
@@ -8,6 +9,13 @@ public interface GraphicsProgram {
 
     public String getProgramName();
 
+    public ImageIcon getIcon();
+
+    public Dimension getDimension();
+
     public Boolean getCompletedStatus();
+
+    public JPanel getInfoPanel();
+
 
 }

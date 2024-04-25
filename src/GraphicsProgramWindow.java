@@ -17,7 +17,7 @@ class GraphicsProgramWindow extends JFrame {
     public GraphicsProgramWindow(GraphicsProgram program) {
 
         setBackground(Color.WHITE);
-        setBounds(100, 100, 450, 300);
+        setBounds(100, 100, 800, 800);
         setVisible(true);
 
         contentPane = new JPanel();

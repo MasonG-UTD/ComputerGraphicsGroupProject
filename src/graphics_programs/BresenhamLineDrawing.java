@@ -1,17 +1,20 @@
 package graphics_programs;
 
-import java.awt.Graphics;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import java.awt.*;
+import javax.swing.*;
 
 public class BresenhamLineDrawing extends JPanel implements GraphicsProgram {
 
     private JPanel panel;
 
+    private static final int PANEL_WIDTH = 400;
+    private static final int PANEL_HEIGHT = 400;
+
     private int startX, startY, endX, endY;
 
     public BresenhamLineDrawing(int startX, int startY, int endX, int endY) {
         this.panel = this;
+        setSize(PANEL_WIDTH, PANEL_HEIGHT);
         this.startX = startX;
         this.startY = startY;
         this.endX = endX;
@@ -59,14 +62,14 @@ public class BresenhamLineDrawing extends JPanel implements GraphicsProgram {
         drawLine(g);
     }
 
-    public static void main(String[] args) {
-        JFrame frame = new JFrame("Bresenham Line Drawing Algorithm");
-        BresenhamLineDrawing lineDrawer = new BresenhamLineDrawing(10, 10, 100, 100);
-        frame.setContentPane(lineDrawer);
-        frame.setSize(400, 400);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setVisible(true);
-    }
+//    public static void main(String[] args) {
+//        JFrame frame = new JFrame("Bresenham Line Drawing Algorithm");
+//        BresenhamLineDrawing lineDrawer = new BresenhamLineDrawing(10, 10, 100, 100);
+//        frame.setContentPane(lineDrawer);
+//        frame.setSize(400, 400);
+//        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        frame.setVisible(true);
+//    }
 
     @Override
     public JPanel getProgramPanel() {
@@ -79,7 +82,23 @@ public class BresenhamLineDrawing extends JPanel implements GraphicsProgram {
     }
 
     @Override
+    public Dimension getDimension() {
+        return new Dimension(PANEL_WIDTH, PANEL_HEIGHT);
+    }
+
+    @Override
+    public ImageIcon getIcon() {
+        return new javax.swing.ImageIcon("candy/images.png");
+    }
+
+
+    @Override
     public Boolean getCompletedStatus() {
+        return null;
+    }
+
+    @Override
+    public JPanel getInfoPanel() {
         return null;
     }
 }
