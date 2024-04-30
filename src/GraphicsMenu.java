@@ -10,7 +10,7 @@ public class GraphicsMenu extends JFrame {
 
     private JPanel contentPane;
     private JList programList;
-    private GraphicsProgram bresenham, dda, clipLine, polygon, cubeViewer, koch;
+    private GraphicsProgram bresenham, dda, clipLine, polygon, cubeViewer, koch, dragonCurve;
 
     public static void main(String[] args) {
         GraphicsMenu menu = new GraphicsMenu();
@@ -32,8 +32,9 @@ public class GraphicsMenu extends JFrame {
         bresenham = new BresenhamLineDrawing(0,0,100,100);
         clipLine = new ClipLine();
         koch = new KochFractal();
+        dragonCurve = new DragonCurve();
 
-        GraphicsProgram[] elements = {dda, bresenham, clipLine, koch};
+        GraphicsProgram[] elements = {dda, bresenham, clipLine, koch, dragonCurve};
         GraphicsProgramListElement listRenderer = new GraphicsProgramListElement();
         programList = new JList(elements);
         programList.setCellRenderer(listRenderer);
