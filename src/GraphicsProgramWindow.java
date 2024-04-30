@@ -26,7 +26,7 @@ class GraphicsProgramWindow extends JFrame {
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
         contentPane.setLayout(new BorderLayout(0, 0));
         setContentPane(contentPane);
-    
+
         infoButton = new JButton("Info");
         contentPane.add(infoButton, BorderLayout.NORTH);
         infoButton.addActionListener(new ActionListener() {

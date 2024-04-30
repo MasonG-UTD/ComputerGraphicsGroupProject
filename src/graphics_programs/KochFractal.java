@@ -6,32 +6,36 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class KochFractal extends javax.swing.JPanel implements GraphicsProgram {
-    public KochFractal() {
-         JFrame frame = new JFrame("Koch Example");
-         this.panel = this;
-         setSize(PANEL_WIDTH, PANEL_HEIGHT); 
-    }
     int height;
     int width;
-    int level = 5;
+    int level = 3;
     private JPanel panel;
 
     private static final int PANEL_WIDTH = 400;
     private static final int PANEL_HEIGHT = 400;
 
     private boolean completed = false;
+    
+    public KochFractal() {
+         JFrame frame = new JFrame("Koch Example");
+         this.panel = this;
+         setSize(PANEL_WIDTH, PANEL_HEIGHT); 
+    }
 
     @Override
     public void paint(Graphics g){
         height = this.getHeight() - this.getHeight()/4;
         width = this.getWidth();
-        int xStart = width/2 - height/2;
-        drawKochLine(g, level, xStart + 20, height - 20,   xStart + height - 20, height - 20);
+        int xStart = 50;
+        drawKochLineSegment(g, level, xStart, height - 80,   xStart + width - 60, height - 80);
     }
 
     // Recursively called on each segment of the Koch curve
-    private void drawKochLine (Graphics g, int lev, int x1, int y1, int x5, int y5){
-        int deltaX, deltaY, x2, y2, x3, y3, x4, y4;
+    private void drawKochLineSegment (Graphics g, int lev, int x1, int y1, int x5, int y5){
+        int deltaX, deltaY;
+        int x2, y2;
+        int x3, y3;
+        int x4, y4;
 
         if (lev == 0){
             // Draw a solid line
@@ -54,10 +58,10 @@ public class KochFractal extends javax.swing.JPanel implements GraphicsProgram {
               y4 = y1 + 2 * deltaY /3;
 
               // Now draw each sub-segment of the Kock curve
-              drawKochLine (g,lev-1, x1, y1, x2, y2); // 
-              drawKochLine (g,lev-1, x2, y2, x3, y3);
-              drawKochLine (g,lev-1, x3, y3, x4, y4);
-              drawKochLine (g,lev-1, x4, y4, x5, y5);
+              drawKochLineSegment (g,lev-1, x1, y1, x2, y2);
+              drawKochLineSegment (g,lev-1, x2, y2, x3, y3);
+              drawKochLineSegment (g,lev-1, x3, y3, x4, y4);
+              drawKochLineSegment (g,lev-1, x4, y4, x5, y5);
           }
       }
 
