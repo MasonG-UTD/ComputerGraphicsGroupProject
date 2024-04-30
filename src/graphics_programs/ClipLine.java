@@ -12,8 +12,8 @@ public class ClipLine extends JPanel implements GraphicsProgram {
    private Rectangle clippingWindow;
    private JPanel panel;
 
-   private static final int PANEL_WIDTH = 400;
-   private static final int PANEL_HEIGHT = 400;
+   private static final int PANEL_WIDTH = 800;
+   private static final int PANEL_HEIGHT = 800;
 
    private boolean completed = false;
 
@@ -41,7 +41,7 @@ public class ClipLine extends JPanel implements GraphicsProgram {
 
    private void clipAndDraw() {
       boolean accept = clipLine();
-
+      completed = true;
       Graphics g = getGraphics();
       Graphics2D g2d = (Graphics2D) g;
       Stroke solidStroke = new BasicStroke(1);
@@ -64,6 +64,7 @@ public class ClipLine extends JPanel implements GraphicsProgram {
       int code1 = computeCode(x1, y1, clippingWindow);
       int code2 = computeCode(x2, y2, clippingWindow);
       boolean accept = false;
+      completed = true;
 
       while (true) {
          if ((code1 == 0) && (code2 == 0)) {
@@ -100,7 +101,6 @@ public class ClipLine extends JPanel implements GraphicsProgram {
             }
          }
       }
-
       return accept;
    }
 
@@ -139,7 +139,7 @@ public class ClipLine extends JPanel implements GraphicsProgram {
 
    @Override
    public ImageIcon getIcon() {
-      return new javax.swing.ImageIcon("candy/images.png");
+      return new javax.swing.ImageIcon("candy/pinkAndPurple.png");
    }
 
    @Override

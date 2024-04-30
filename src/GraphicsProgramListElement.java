@@ -5,7 +5,7 @@ import java.awt.*;
 
 public class GraphicsProgramListElement extends DefaultListCellRenderer implements ListCellRenderer<Object> {
 
-    private static final int ICON_TEXT_GAP = 5;
+    private static final int ICON_TEXT_GAP = 100;
 
     @Override
     public Component getListCellRendererComponent(
@@ -17,14 +17,17 @@ public class GraphicsProgramListElement extends DefaultListCellRenderer implemen
 
         GraphicsProgram program = (GraphicsProgram) value;
         setText(program.getProgramName());
-        setSize(800,300);
+        setFont(getFont().deriveFont(24.0f));
+        setSize(400,200);
+
         if(program.getCompletedStatus()) {
-            setIcon(program.getIcon());
+            ImageIcon scaledIcon = new ImageIcon(program.getIcon().getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+            setIcon(scaledIcon);
         } else {
             setIcon(new IncompleteIcon());
         }
-        setIconTextGap(ICON_TEXT_GAP);
 
+        setIconTextGap(ICON_TEXT_GAP);
         setEnabled(true);
         return this;
     }
@@ -39,11 +42,11 @@ class IncompleteIcon implements Icon {
 
     @Override
     public int getIconWidth() {
-        return 0;
+        return 200;
     }
 
     @Override
     public int getIconHeight() {
-        return 0;
+        return 200;
     }
 }

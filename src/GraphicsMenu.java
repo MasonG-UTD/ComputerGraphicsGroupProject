@@ -21,7 +21,7 @@ public class GraphicsMenu extends JFrame {
 
         setName("Graphics Review");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setBounds(100, 100, 450, 300);
+        setSize(700,700);
 
         contentPane = new JPanel();
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));

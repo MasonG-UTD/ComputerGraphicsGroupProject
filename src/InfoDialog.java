@@ -1,5 +1,4 @@
 import graphics_programs.GraphicsProgram;
-
 import javax.swing.*;
 import java.awt.event.*;
 import java.io.BufferedReader;
@@ -16,7 +15,7 @@ public class InfoDialog extends JDialog {
     public InfoDialog(GraphicsProgram program) {
         System.out.println("info");
         setContentPane(contentPane);
-        this.setSize(program.getDimension());
+        setSize(800,800);
         setModal(true);
         getRootPane().setDefaultButton(buttonOK);
 
@@ -45,7 +44,6 @@ public class InfoDialog extends JDialog {
                 onCancel();
             }
         });
-
 
         // call onCancel() when cross is clicked
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);

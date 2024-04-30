@@ -7,8 +7,8 @@ public class BresenhamLineDrawing extends JPanel implements GraphicsProgram {
 
     private JPanel panel;
 
-    private static final int PANEL_WIDTH = 400;
-    private static final int PANEL_HEIGHT = 400;
+    private static final int PANEL_WIDTH = 800;
+    private static final int PANEL_HEIGHT = 800;
 
     private int startX, startY, endX, endY;
 
@@ -83,7 +83,7 @@ public class BresenhamLineDrawing extends JPanel implements GraphicsProgram {
 
     @Override
     public ImageIcon getIcon() {
-        return new javax.swing.ImageIcon("candy/images.png");
+        return new javax.swing.ImageIcon("candy/pinkAndBlue.png");
     }
 
 

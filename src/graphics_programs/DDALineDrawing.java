@@ -5,8 +5,8 @@ import javax.swing.*;
 
 public class DDALineDrawing extends JPanel implements GraphicsProgram {
 
-    private static final int PANEL_WIDTH = 400;
-    private static final int PANEL_HEIGHT = 400;
+    private static final int PANEL_WIDTH = 800;
+    private static final int PANEL_HEIGHT = 800;
 
     private int startX, startY, endX, endY;
     private JPanel panel;
@@ -47,6 +47,7 @@ public class DDALineDrawing extends JPanel implements GraphicsProgram {
             x += xIncrement;
             y += yIncrement;
         }
+        completed = true;
     }
 
     @Override
@@ -81,7 +82,7 @@ public class DDALineDrawing extends JPanel implements GraphicsProgram {
 
     @Override
     public ImageIcon getIcon() {
-        return new javax.swing.ImageIcon("candy/images.png");
+        return new javax.swing.ImageIcon("candy/pinwheel.png");
     }
 
 
