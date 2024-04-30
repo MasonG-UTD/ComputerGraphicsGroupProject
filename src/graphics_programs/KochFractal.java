@@ -1,13 +1,25 @@
 package graphics_programs;
 import java.awt.*;
 
-public class KochFractal extends javax.swing.JPanel {
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+public class KochFractal extends javax.swing.JPanel implements GraphicsProgram {
     public KochFractal() {
-        
+         JFrame frame = new JFrame("Koch Example");
+         this.panel = this;
+         setSize(PANEL_WIDTH, PANEL_HEIGHT); 
     }
     int height;
     int width;
     int level = 5;
+    private JPanel panel;
+
+    private static final int PANEL_WIDTH = 400;
+    private static final int PANEL_HEIGHT = 400;
+
+    private boolean completed = false;
 
     @Override
     public void paint(Graphics g){
@@ -48,4 +60,35 @@ public class KochFractal extends javax.swing.JPanel {
               drawKochLine (g,lev-1, x4, y4, x5, y5);
           }
       }
+
+       @Override
+    public JPanel getProgramPanel() {
+        return panel;
+    }
+
+    @Override
+    public String getProgramName() {
+        return "Koch Fractal";
+    }
+
+    @Override
+    public Dimension getDimension() {
+        return new Dimension(PANEL_WIDTH, PANEL_HEIGHT);
+    }
+
+    @Override
+    public ImageIcon getIcon() {
+        return new javax.swing.ImageIcon("candy/images.png");
+    }
+
+
+    @Override
+    public Boolean getCompletedStatus() {
+        return completed;
+    }
+
+    @Override
+    public String getInfoFileName() {
+        return "info/dda.txt";
+    }
 }
